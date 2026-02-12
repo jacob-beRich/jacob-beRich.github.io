@@ -1,97 +1,110 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ruming.Z | Precision Delivery & Digital Twins</title>
+    <title>Ruming Zhang | Senior Product Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              abyss: '#020617', // Main Background
-              starlight: '#F8FAFC', // Headings
-              muted: '#94A3B8', // Body
-              cyan: {
-                400: '#22d3ee',
-                500: '#2DD4BF', // Aurora Teal (using teal-400 equivalent for 2DD4BF)
-                900: '#164e63',
-              },
-              amber: {
-                500: '#F59E0B', // Alert Amber
-                600: '#d97706',
-              },
-              slate: {
-                800: '#1e293b',
-                900: '#0f172a',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', 'system-ui', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-            letterSpacing: {
-              widest: '0.2em',
-            },
-            backgroundImage: {
-              'grid-pattern': "linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px)",
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#020617',
+                        starlight: '#F8FAFC',
+                        cyan: { 400: '#22d3ee', 500: '#2DD4BF' },
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #ffffff05 1px, transparent 1px), linear-gradient(to bottom, #ffffff05 1px, transparent 1px)",
+                    }
+                }
             }
-          }
         }
-      }
     </script>
     <style>
-      body {
-        background-color: #020617;
-        color: #F8FAFC;
-        cursor: default;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1e293b;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #2DD4BF;
-      }
-      
-      /* Utility for 3D Perspective */
-      .perspective-1000 {
-        perspective: 1000px;
-      }
-      .preserve-3d {
-        transform-style: preserve-3d;
-      }
+        body { background-color: #020617; color: #F8FAFC; }
+        .hero-gradient { background: radial-gradient(circle at center, rgba(45, 212, 191, 0.15) 0%, transparent 70%); }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "framer-motion": "https://esm.sh/framer-motion@11.1.7?external=react,react-dom",
-    "lucide-react": "https://esm.sh/lucide-react@0.378.0?external=react",
-    "three": "https://esm.sh/three@0.160.0",
-    "three/": "https://esm.sh/three@0.160.0/",
-    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.15.14?external=react,react-dom,three",
-    "@react-three/drei": "https://esm.sh/@react-three/drei@9.96.1?external=react,react-dom,three,@react-three/fiber",
-    "maath/random/dist/maath-random.esm": "https://esm.sh/maath@0.10.7/random/dist/maath-random.esm?external=three",
-    "maath/": "https://esm.sh/maath@^0.10.8/",
-    "three-stdlib": "https://esm.sh/three-stdlib@^2.36.1"
-  }
-}
-</script>
+    <script type="importmap">
+    {
+        "imports": {
+            "react": "https://esm.sh/react@18.2.0",
+            "react-dom": "https://esm.sh/react-dom@18.2.0",
+            "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+            "lucide-react": "https://esm.sh/lucide-react@0.378.0?external=react"
+        }
+    }
+    </script>
 </head>
-  <body>
+<body class="bg-abyss selection:bg-cyan-500/30">
     <div id="root"></div>
-  </body>
+
+    <script type="module">
+        import React, { useState } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { FileUser, Github, Mail, ExternalLink, Box, Building2, Code2 } from 'lucide-react';
+
+        const App = () => {
+            return (
+                <div className="min-h-screen relative overflow-hidden font-sans">
+                    {/* Background Grid */}
+                    <div className="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] pointer-events-none"></div>
+                    <div className="absolute inset-0 hero-gradient pointer-events-none"></div>
+
+                    <main className="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20">
+                        {/* Hero Section */}
+                        <section className="mb-20">
+                            <h2 className="text-cyan-500 font-mono tracking-widest mb-4">HELLO, I AM</h2>
+                            <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+                                Ruming Zhang <span className="text-cyan-500">.</span>
+                            </h1>
+                            <p className="text-xl md:text-2xl text-slate-400 max-w-2xl leading-relaxed mb-8">
+                                高级产品经理 @ 明源云，专注于 **UE5 可交互电子沙盘** 与地产数字化营销方案。从土木工程转行科技，用底层逻辑构建 3D 交互世界。
+                            </p>
+                            
+                            <div className="flex flex-wrap gap-4">
+                                {/* 请将下方的 href 换成你的 PDF 链接 */}
+                                <a href="你的GoogleDrive简历链接" target="_blank" className="flex items-center gap-2 bg-starlight text-abyss px-6 py-3 rounded-full font-bold hover:bg-cyan-500 transition-colors">
+                                    <FileUser size={20} /> Preview Resume
+                                </a>
+                                <div className="flex gap-4">
+                                    <a href="https://github.com/jacob-beRich" className="p-3 border border-slate-800 rounded-full hover:border-cyan-500 transition-colors">
+                                        <Github size={24} />
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Professional Focus */}
+                        <section className="grid md:grid-cols-3 gap-6 mb-20">
+                            <div className="p-8 bg-slate-900/50 border border-slate-800 rounded-2xl">
+                                <Box className="text-cyan-500 mb-4" size={32} />
+                                <h3 className="text-xl font-bold mb-2">3D Digital Twins</h3>
+                                <p className="text-slate-400 text-sm">基于 UE5 的 3D 可交互电子沙盘，提升售楼部数字营销体验。</p>
+                            </div>
+                            <div className="p-8 bg-slate-900/50 border border-slate-800 rounded-2xl">
+                                <Building2 className="text-cyan-500 mb-4" size={32} />
+                                <h3 className="text-xl font-bold mb-2">Industry Shift</h3>
+                                <p className="text-slate-400 text-sm">深耕土木工程行业背景，为科技产品注入真实工业逻辑。</p>
+                            </div>
+                            <div className="p-8 bg-slate-900/50 border border-slate-800 rounded-2xl">
+                                <Code2 className="text-cyan-500 mb-4" size={32} />
+                                <h3 className="text-xl font-bold mb-2">AI-Driven</h3>
+                                <p className="text-slate-400 text-sm">利用 AI 工具辅助开发与决策，加速从 0 到 1 的产品落地。</p>
+                            </div>
+                        </section>
+                        
+                        <footer className="pt-10 border-t border-slate-800 text-slate-500 text-sm flex justify-between">
+                            <p>© 2026 Ruming Zhang. Built with AI Synergy.</p>
+                            <p>Chengdu, China</p>
+                        </footer>
+                    </main>
+                </div>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
 </html>
