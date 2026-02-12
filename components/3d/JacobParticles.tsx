@@ -3,6 +3,17 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { FontLoader, TextGeometry, MeshSurfaceSampler } from 'three-stdlib';
 
+// Fix for Missing JSX.IntrinsicElements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      instancedMesh: any;
+      sphereGeometry: any;
+      meshBasicMaterial: any;
+    }
+  }
+}
+
 // Using Helvetiker as a reliable fallback for bold geometric text
 const FONT_URL = 'https://threejs.org/examples/fonts/helvetiker_bold.typeface.json';
 const PARTICLE_COUNT = 2500;
@@ -204,11 +215,8 @@ export const JacobParticles = () => {
   if (!font) return null;
 
   return (
-    // @ts-ignore
     <instancedMesh ref={meshRef} args={[undefined, undefined, startPos.length / 3]} position={[0, 0, -2]}>
-      {/* @ts-ignore */}
       <sphereGeometry args={[0.025, 8, 8]} />
-      {/* @ts-ignore */}
       <meshBasicMaterial 
         toneMapped={false} 
         color="#ffffff"

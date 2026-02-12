@@ -15,32 +15,32 @@ export const HeaderInfo: React.FC<HeaderInfoProps> = ({ content }) => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.5, duration: 0.8 }}
-      className="fixed top-6 left-8 z-50 hidden md:block"
+      className="fixed top-6 left-6 z-50 hidden md:block"
     >
       <div className="
-        bg-abyss/50 backdrop-blur-md border border-white/10
-        px-6 py-4 rounded-xl shadow-lg
-        flex flex-col gap-2 group hover:border-cyan-500/30 transition-colors
+        bg-abyss/40 backdrop-blur-md border border-white/5
+        px-5 py-3 rounded-lg shadow-xl
+        flex flex-col gap-1 group hover:border-cyan-500/30 transition-all duration-300
       ">
         {/* Name */}
-        <div className="text-xl font-bold text-starlight tracking-tight mb-1">
+        <div className="text-lg font-bold text-starlight tracking-tight mb-1">
            <PrecisionLink text={content.header.name} hoverClass="text-cyan-400" />
         </div>
 
         {/* Contact Details */}
-        <div className="flex flex-col gap-1 text-xs font-mono text-slate-400">
+        <div className="flex flex-col gap-1.5 text-[11px] font-mono text-slate-400">
           <a 
             href={`tel:${content.header.phone.replace(/\s+/g, '')}`} 
             className="flex items-center gap-2 hover:text-amber-500 transition-colors"
           >
-            <Phone className="w-3 h-3 text-cyan-500" />
+            <Phone className="w-3 h-3 text-cyan-500/70" />
             {content.header.phone}
           </a>
           <a 
             href={`mailto:${content.header.email}`} 
             className="flex items-center gap-2 hover:text-amber-500 transition-colors"
           >
-            <Mail className="w-3 h-3 text-cyan-500" />
+            <Mail className="w-3 h-3 text-cyan-500/70" />
             {content.header.email}
           </a>
         </div>

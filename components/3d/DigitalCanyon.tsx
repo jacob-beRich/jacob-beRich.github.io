@@ -2,6 +2,17 @@ import React, { useRef, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
+// Fix for Missing JSX.IntrinsicElements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      points: any;
+      planeGeometry: any;
+      shaderMaterial: any;
+    }
+  }
+}
+
 // --- GLSL Shaders ---
 
 const vertexShader = `
@@ -151,12 +162,9 @@ export const DigitalCanyon = () => {
   });
 
   return (
-    // @ts-ignore
     <points ref={meshRef} position={[0, -4, -10]} rotation={[-Math.PI / 2.5, 0, 0]}>
       {/* A flat plane that gets displaced by the shader */}
-      {/* @ts-ignore */}
       <planeGeometry args={planeArgs} />
-      {/* @ts-ignore */}
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
